@@ -57,3 +57,10 @@ struct RippleEffect<T: Equatable>: ViewModifier {
         }
     }
 }
+
+extension View {
+    /// Apply a ripple effect triggered by tap gestures
+    func rippleEffect<T: Equatable>(at origin: CGPoint, trigger: T, duration: TimeInterval = 3) -> some View {
+        modifier(RippleEffect(origin: origin, trigger: trigger, duration: duration))
+    }
+}
